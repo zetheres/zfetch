@@ -110,7 +110,8 @@ def download_engine():
     print("2. Mp4 (Video+Audio)\033[0m")
     media_choice = input("\n\033[1;33mSelect Option (1 or 2): \033[0m").strip()
 
-    base_args = f'-c --no-warnings --no-keep-video {playlist_cmd}'
+    # শুধু এই লাইনটিতে --trim-filenames 50 যোগ করা হয়েছে
+    base_args = f'-c --no-warnings --no-keep-video --trim-filenames 50 {playlist_cmd}'
 
     if media_choice == '1':
         print("\n\033[1;36m[*] Starting Audio Download...\033[0m")
@@ -188,4 +189,3 @@ if __name__ == "__main__":
         main_menu()
     except KeyboardInterrupt:
         print("\n\033[1;31mStopped by User. Exiting...\033[0m")
-  
